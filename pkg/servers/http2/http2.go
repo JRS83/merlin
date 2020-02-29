@@ -38,7 +38,7 @@ import (
 	"github.com/cretz/gopaque/gopaque"
 	"github.com/fatih/color"
 	"github.com/lucas-clemente/quic-go"
-	"github.com/lucas-clemente/quic-go/h2quic"
+	"github.com/lucas-clemente/quic-go/http3"
 	"github.com/satori/go.uuid"
 	"go.dedis.ch/kyber"
 	"gopkg.in/square/go-jose.v2"
@@ -197,7 +197,7 @@ func New(iface string, port int, protocol string, key string, certificate string
 	if s.Protocol == "h2" {
 		s.Server = srv
 	} else if s.Protocol == "hq" {
-		s.Server = &h2quic.Server{
+		s.Server = &http3.Server{
 			Server: srv,
 			QuicConfig: &quic.Config{
 				KeepAlive:                   false,
@@ -240,7 +240,7 @@ func (s *Server) Run() error {
 		go logging.Server(server.ListenAndServeTLS(s.Certificate, s.Key).Error())
 		return nil
 	} else if s.Protocol == "hq" {
-		server := s.Server.(*h2quic.Server)
+		server := s.Server.(*http2.Server)
 
 		defer func() {
 			err := server.Close()

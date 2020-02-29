@@ -46,7 +46,7 @@ import (
 	"github.com/cretz/gopaque/gopaque"
 	"github.com/fatih/color"
 	"github.com/lucas-clemente/quic-go"
-	"github.com/lucas-clemente/quic-go/h2quic"
+	"github.com/lucas-clemente/quic-go/www3"
 	"github.com/satori/go.uuid"
 	"golang.org/x/crypto/pbkdf2"
 	"golang.org/x/net/http2"
@@ -389,7 +389,7 @@ func getClient(protocol string, proxyURL string) (*http.Client, error) {
 
 	switch strings.ToLower(protocol) {
 	case "hq":
-		transport := &h2quic.RoundTripper{
+		transport := &http2.RoundTripper{
 			QuicConfig:      &quic.Config{IdleTimeout: 168 * time.Hour},
 			TLSClientConfig: TLSConfig,
 		}

@@ -8,7 +8,7 @@ require (
 	github.com/fatih/color v1.7.0
 	github.com/gojp/goreportcard v0.0.0-20190808093409-9f711d57eb7d // indirect
 	github.com/kr/pty v1.1.8 // indirect
-	github.com/lucas-clemente/quic-go v0.10.2
+	github.com/lucas-clemente/quic-go v0.14.4
 	github.com/mattn/go-colorable v0.1.2 // indirect
 	github.com/mattn/go-runewidth v0.0.4 // indirect
 	github.com/mattn/go-shellwords v1.0.5

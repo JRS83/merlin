@@ -5,14 +5,14 @@ VERSION=$(shell cat pkg/merlin.go |grep "const Version ="|cut -d"\"" -f2)
 
 MSERVER=merlinServer
 MAGENT=merlinAgent
-PASSWORD=merlin
+PASSWORD=2xyXY3z4!
 BUILD=$(shell git rev-parse HEAD)
 DIR=data/temp/v${VERSION}/${BUILD}
 BIN=data/bin/
 XBUILD=-X main.build=${BUILD} -X github.com/Ne0nd0g/merlin/pkg/agent.build=${BUILD}
-URL ?= https://127.0.0.1:443
+URL ?= https://18.224.7.67:443
 XURL=-X main.url=${URL}
-PSK ?= merlin
+PSK ?= 2xyXY3z4!
 XPSK=-X main.psk=${PSK}
 PROXY ?=
 XPROXY =-X main.proxy=$(PROXY)
@@ -33,7 +33,7 @@ L=Linux-x64
 A=Linux-arm
 M=Linux-mips
 D=Darwin-x64
-export GO111MODULE=on
+export GO111MODULE=auto
 
 # Make Directory to store executables
 $(shell mkdir -p ${DIR})
